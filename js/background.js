@@ -3,9 +3,8 @@ var p = {
     pats: {
         dailymotion: /dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,
         soundcloud: /soundcloud\.com\//,
-        spotify: /spotify\.com\/(track|artist|album|user\/\w+\/playlist)\/([a-zA-z0-9]+)/,
         vimeo: /vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,
-        youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?(\w+)/
+        youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)/
     },
     /* embed links */
     embed: {
@@ -14,10 +13,6 @@ var p = {
         },
         soundcloud: function(url, match) {
             return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(url) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true';
-        },
-        spotify: function(url, match) {
-            console.log(match);
-            return 'http://embed.spotify.com/?uri=spotify:' + match[1] + ':' + match[2];
         },
         vimeo: function(url, match) {
             return 'https://player.vimeo.com/video/' + match[1];

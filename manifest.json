@@ -10,12 +10,12 @@
         "tabs"
     ],
     "browser_action": {
-        "default_icon": "img/add.png"
+        "default_icon": "img/128x128.png"
     },
     "icons": {
-        "16": "img/add.png",
-        "48": "img/add.png",
-        "128": "img/add.png"
+        "16": "img/128x128.png",
+        "48": "img/128x128.png",
+        "128": "img/128x128.png"
     },
     "manifest_version": 2
 }

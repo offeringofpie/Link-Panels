@@ -1,9 +1,9 @@
 {
-    "name": "Pie Panel",
+    "name": "Chrome Panels",
     "version": "0.1",
     "description": "Create panels from links",
     "background": {
-        "scripts": ["js/background.js"]
+        "scripts": ["js/vars.js", "js/background.js"]
     },
     "permissions": [
         "contextMenus",
@@ -13,8 +13,6 @@
         "default_icon": "img/128x128.png"
     },
     "icons": {
-        "16": "img/128x128.png",
-        "48": "img/128x128.png",
         "128": "img/128x128.png"
     },
     "manifest_version": 2

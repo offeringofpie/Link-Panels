@@ -14,7 +14,6 @@ var p = {
       return 'http://www.dailymotion.com/embed/video/' + match[1] + '?api=postMessage&html=1';
     },
     instagram: function(url, match) {
-      console.log(match);
       return 'https://www.instagram.com/p/' + match[1] + '/embed/';
     },
     soundcloud: function(url, match) {

@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "Create panels from links",
   "background": {
-    "scripts": ["js/vars.js", "js/background.js"]
+    "scripts": ["js/parse.js", "js/background.js"]
   },
   "permissions": [
     "contextMenus",

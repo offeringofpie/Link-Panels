@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+  font-size: 0.8em;
+}
+label {
+  position: relative;
+}
+label span {
+  color: #666;
+  margin: 0 10px;
+  cursor: pointer;
+  position: absolute;
+}
+label span:hover {
+  color: #aaa;
+}
+input[type=number] {
+  font-family: monospace;
+  font-size: 1.2em;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  margin: 20px 10px 10px;
+}
+input:disabled {
+  color: #aaa;
+}
+a {
+  background-color: #1e88e5;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  margin: 0 auto;
+  padding: 10px;
+}
+
+a:hover {
+  background-color: #2196F3;
+}
+
+a:focus {
+  color: #fff;
+  background-color: #1565C0;
+}

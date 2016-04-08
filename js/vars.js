@@ -4,7 +4,7 @@ var p = {
     dailymotion: /dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,
     instagram: /instagr(?:\.am|am\.com)\/p\/([a-zA-Z0-9]+)/,
     soundcloud: /soundcloud\.com\//,
-    twitch: /twitch\.tv\/([a-zA-z0-9]+)(?:\/v\/)?(\d+)/,
+    twitch: /twitch\.tv\/([a-zA-z0-9]+)(?:\/v\/)?(\d+)?/,
     vimeo: /vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,
     vine: /vine\.co\/v\/(.+)/,
     youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)/
@@ -21,8 +21,7 @@ var p = {
       return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(url) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true';
     },
     twitch: function(url, match) {
-      var video = (match[2].length) ? '&video=' + match[1] : '';
-      console.log(match);
+      var video = (match[2] === undefined) ? '&video=v' + match[2] : '';
       return 'https://player.twitch.tv/?channel=' + match[1] + video;
     },
     vimeo: function(url, match) {

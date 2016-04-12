@@ -1,12 +1,29 @@
+var sync = {
+  get: function(func) {
+    chrome.storage.sync.get("options", func);
+  },
+  set: function(object) {
+    chrome.storage.sync.set({
+      "options": object
+    }, function() {
+      if (chrome.runtime.error) {
+        console.log("Runtime error.");
+      }
+    });
+  }
+};
+
 var openPanel = function(panel) {
-  var width = 350;
-  var typeOfUrl = (typeof panel === 'string') ? panel : panel.linkUrl;
-  embedUrl = linker(typeOfUrl);
-  chrome.windows.create({
-    url: embedUrl,
-    type: 'panel',
-    width: width,
-    height: Math.floor(width * 9 / 16)
+  var typeOfUrl = (typeof panel === 'string') ? panel : panel.linkUrl,
+    embedUrl = linker(typeOfUrl);
+  sync.get(function(data) {
+    console.log(data.options);
+    chrome.windows.create({
+      url: embedUrl,
+      type: 'panel',
+      width: data.options.width,
+      height: data.options.height
+    });
   });
 };
 

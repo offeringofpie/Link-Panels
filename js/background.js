@@ -17,7 +17,6 @@ var openPanel = function(panel) {
   var typeOfUrl = (typeof panel === 'string') ? panel : panel.linkUrl,
     embedUrl = linker(typeOfUrl);
   sync.get(function(data) {
-    console.log(data.options);
     chrome.windows.create({
       url: embedUrl,
       type: 'panel',

@@ -17,11 +17,22 @@ var openPanel = function(panel) {
   var typeOfUrl = (typeof panel === 'string') ? panel : panel.linkUrl,
     embedUrl = linker(typeOfUrl);
   sync.get(function(data) {
+    var inData = {};
+    if (!data.length) {
+      inData.options = {
+        width: 300,
+        height: 300,
+        isWide: false
+      } else {
+        inData = data;
+      }
+      sync.set({"options":inData.options});
+    }
     chrome.windows.create({
       url: embedUrl,
       type: 'panel',
-      width: data.options.width,
-      height: data.options.height
+      width: inData.options.width,
+      height: inData.options.height
     });
   });
 };

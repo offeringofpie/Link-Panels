@@ -23,10 +23,10 @@ var openPanel = function(panel) {
         width: 300,
         height: 300,
         isWide: false
-      } else {
-        inData = data;
       }
       sync.set({"options":inData.options});
+    } else {
+      inData = data;
     }
     chrome.windows.create({
       url: embedUrl,

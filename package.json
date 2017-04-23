@@ -1,0 +1,31 @@
+{
+  "name": "chrome-panels",
+  "author": "J Lopes <mail@jlopes.eu>",
+  "git": "https://github.com/offeringofpie/Chrome-Panels.git",
+  "version": "1.0.0",
+  "description": "Chrome Panels extension for Google Chrome",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "optimize-css-assets-webpack-plugin": "^1.3.1",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1",
+    "webpack-dashboard": "^0.3.0"
+  },
+  "scripts": {
+    "watch": "webpack --watch",
+    "dashboard": "webpack-dashboard -c cyan -- yarn watch"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  }
+}

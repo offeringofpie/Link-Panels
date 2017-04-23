@@ -1,4 +1,4 @@
-var p = {
+export default {
   /* regex patterns */
   pats: {
     dailymotion: /dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,

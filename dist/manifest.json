@@ -1,10 +1,10 @@
 {
   "name": "Chrome Panels",
-  "version": "0.1",
+  "version": "0.12",
   "manifest_version": 2,
   "description": "Create panels from links",
   "background": {
-    "scripts": ["js/parse.js", "js/background.js"]
+    "scripts": ["/js/background.js"]
   },
   "permissions": [
     "contextMenus",
@@ -18,7 +18,7 @@
     "128": "img/128x128.png"
   },
   "options_ui": {
-    "page": "options.html",
+    "page": "./options.html",
     "chrome_style": true
   }
 }

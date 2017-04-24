@@ -5,7 +5,7 @@ export default {
     gist: /gist\.github\.com\/([-0-9a-zA-Z]+\/)?([0-9a-fA-f]+)/,
     instagram: /instagr(?:\.am|am\.com)\/p\/([a-zA-Z0-9]+)/,
     pastebin: /pastebin\.com\/(.+)/,
-    reddit: /reddit\.com\/(.+)?/,
+    reddit: /redd(?:\.it|it\.com)\/(.+)?/,
     soundcloud: /soundcloud\.com\//,
     tedtalks: /ted\.com\/talks\/(.*)/,
     twitch: /twitch\.tv\/([a-zA-z0-9]+)(?:\/v\/)?(\d+)?/,

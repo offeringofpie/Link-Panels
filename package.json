@@ -13,6 +13,7 @@
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
+    "jest": "^19.0.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
     "optimize-css-assets-webpack-plugin": "^1.3.1",
@@ -23,9 +24,12 @@
   },
   "scripts": {
     "watch": "webpack --watch",
-    "dashboard": "webpack-dashboard -c cyan -- yarn watch"
+    "dashboard": "webpack-dashboard -c cyan -- yarn watch",
+    "test": "jest"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   }
 }

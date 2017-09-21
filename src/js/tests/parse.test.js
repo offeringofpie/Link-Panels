@@ -33,7 +33,8 @@ const url_tests = {
     "https://www.twitch.tv/backlogathon/",
     "https://www.twitch.tv/backlogathon/b/512356452",
     "https://www.twitch.tv/backlogathon/c/3915617",
-    "https://www.twitch.tv/videos/96412727"
+    "https://www.twitch.tv/videos/96412727",
+    "https://www.twitch.tv/videos/163638919?collection=nhS5vbvG1hTjmg"
   ],
   "vimeo": [
     "http://vimeo.com/25451551",

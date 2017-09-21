@@ -8,47 +8,48 @@ export default {
     reddit: /redd(?:\.it|it\.com)\/(.+)?/,
     soundcloud: /soundcloud\.com\//,
     tedtalks: /ted\.com\/talks\/(.*)/,
-    twitch: /twitch\.tv\/([a-zA-z0-9]+)(?:\/v\/)?(\d+)?/,
+    twitch: /twitch\.tv\/([a-zA-z0-9]+)\/(?:v\/|b\/|c\/)?(\d+)?(?:\?)?(\w+)?(?:\=)?(.+)?/,
     vimeo: /vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,
     vine: /vine\.co\/v\/(.+)/,
     youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)(?:&list=)?([a-zA-Z0-9\_\-]+)?/
   },
   /* embed links */
   embed: {
-    dailymotion: function(url, match) {
+    dailymotion: (url, match) => {
       return 'http://www.dailymotion.com/embed/video/' + match[1] + '?api=postMessage&html=1';
     },
-    gist: function(url, match) {
+    gist: (url, match) => {
       return 'data:text/html, <title>' + url + '</title><script  src="https://gist.github.com/' + match[1] + '/' + match[2] + '.js"></script>';
     },
-    instagram: function(url, match) {
+    instagram: (url, match) => {
       return 'https://www.instagram.com/p/' + match[1] + '/embed/';
     },
-    pastebin: function(url, match) {
+    pastebin: (url, match) => {
       return 'https://pastebin.com/embed_iframe.php?i=' + match[1];
     },
-    reddit: function(url, match) {
+    reddit: (url, match) => {
       var permalink = (match[1] === undefined) ? '' : match[1];
       return 'https://m.reddit.com/' + permalink;
     },
-    soundcloud: function(url, match) {
+    soundcloud: (url, match) => {
       return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(url) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true';
     },
-    tedtalks: function(url, match) {
+    tedtalks: (url, match) => {
       return 'https://embed-ssl.ted.com/talks/' + match[1] + ".html";
     },
-    twitch: function(url, match) {
+    twitch: (url, match) => {
       var param = (match[2] === undefined) ? '?channel=' : '?video=v',
-          which = (match[2] === undefined) ? 1 : 2;
-      return 'https://player.twitch.tv/' + param + match[which];
+          which = (match[2] === undefined) ? 1 : 2,
+          collection = (match[3] === undefined) ? '' : '&'+match[3]+'='+match[4];
+      return 'https://player.twitch.tv/' + param + match[which] + collection;
     },
-    vimeo: function(url, match) {
+    vimeo: (url, match) => {
       return 'https://player.vimeo.com/video/' + match[1];
     },
-    vine: function(url, match) {
+    vine: (url, match) => {
       return 'https://vine.co/v/' + match[1] + '/embed/simple';
     },
-    youtube: function(url, match) {
+    youtube: (url, match) => {
       var playlist = (match[2] === undefined) ? '' : '?list=' + match[2];
       return 'http://www.youtube.com/embed/' + match[1] + playlist;
     }

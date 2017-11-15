@@ -6,14 +6,14 @@ export default {
     chrome.storage.sync.set({
       "options": object
     }, () => {
-      if (chrome.runtime.error) {
+      if (chrome.runtime.lastError) {
         console.log("Runtime error.");
       }
     });
   },
   update: (fn) => {
     chrome.storage.sync.get("options", (opts) => {
-      if (!chrome.runtime.error) {
+      if (!chrome.runtime.lastError) {
         let settings = {
           width: opts.options.width,
           height: opts.options.height,
@@ -21,7 +21,7 @@ export default {
         };
         fn(settings);
       } else {
-        console.error(chrome.runtime.error);
+        console.error(chrome.runtime.lastError);
       }
     });
   }

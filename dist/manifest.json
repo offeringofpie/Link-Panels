@@ -1,6 +1,6 @@
 {
-  "name": "Chrome Panels",
-  "version": "0.14",
+  "name": "Link Panels",
+  "version": "0.15",
   "manifest_version": 2,
   "description": "Create panels from links",
   "background": {
@@ -11,10 +11,21 @@
     "tabs",
     "storage"
   ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "global": true,
+      "description": "Create a link panel based on the page"
+    }
+  },
   "browser_action": {
     "default_icon": "img/128x128.png"
   },
   "icons": {
+    "48": "img/48x48.png",
     "128": "img/128x128.png"
   },
   "options_ui": {

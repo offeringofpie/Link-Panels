@@ -1,6 +1,16 @@
-Chrome-Panels
-=============
+# [Link Panels](https://offeringofpie.github.io/Link-Panels/)
 
 <img src="./dist/img/128x128.png" width="128" alt="logo">
 
-Creating a chrome extension for training purposes.
+Open links / videos in separate windows
+This extension was created for training purposes
+
+
+## Keyboard Shortcuts
+To open new windows using the active tab you can type this shortcut:
+
+* **WIN/\*NIX**: Ctrl + Shift + Y
+* **MAC**: Cmd + Shift + Y
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

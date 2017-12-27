@@ -1,0 +1,101 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #444;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
+
+.content {
+  background-color: #efefef;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px -8px #000;
+  margin: 10px;
+  min-height: 200px;
+  padding: 67px 25px 25px;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.content hr {
+  background-color: #dadada;
+  border: 0;
+  box-shadow: 0 -8px 10px 8px rgba(0, 0, 0, 0.3);
+  height: 37px;
+  left: 0;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+}
+
+a {
+  color: teal;
+  transition: 0.3s color ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #93b881;
+}
+
+h1 {
+  font-family: 'Bungee', cursive;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    left: 50%;
+    overflow-x: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+  }
+
+  .overflow {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .overflow::before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCI+CjxmaWx0ZXIgaWQ9Im4iIHg9IjAiIHk9IjAiPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43IiBudW1PY3RhdmVzPSIxMCIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzAwMCI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjQiPjwvcmVjdD4KPC9zdmc+");
+    background-size: 80px 80px;
+    content: ' ';
+    transform: scale(5);
+    animation: 0.1s linear 0s infinite alternate rotate;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+@keyframes rotate {
+  0%,
+  49% {
+    transform: rotate(45deg) scale(5);
+  }
+
+  50%,
+  100% {
+    transform: rotate(0deg) scale(5);
+  }
+
+  51%,
+  65% {
+    transform: rotate(90deg) scale(5);
+  }
+
+  75%,
+  99% {
+    transform: rotate(180deg) scale(5);
+  }
+}

@@ -1,6 +1,6 @@
 export default {
-  get: (func) => {
-    chrome.storage.sync.get("options", func);
+  get: (fn) => {
+    chrome.storage.sync.get("options", fn);
   },
   set: (object) => {
     chrome.storage.sync.set({

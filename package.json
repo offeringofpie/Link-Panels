@@ -1,7 +1,7 @@
 {
   "name": "chrome-panels",
   "author": "J Lopes <mail@jlopes.eu>",
-  "git": "https://github.com/offeringofpie/Chrome-Panels.git",
+  "git": "https://github.com/offeringofpie/Link-Panels.git",
   "version": "1.0.0",
   "description": "Chrome Panels extension for Google Chrome",
   "main": "index.js",

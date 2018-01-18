@@ -8,7 +8,7 @@ export default {
     reddit: /redd(?:\.it|it\.com)\/(.+)?/,
     soundcloud: /soundcloud\.com\//,
     tedtalks: /ted\.com\/talks\/(.*)/,
-    twitch: /twitch\.tv\/([a-zA-z0-9]+)\/(?:v\/|b\/|c\/)?(\d+)?(?:\?)?(\w+)?(?:\=)?(.+)?/,
+    twitch: /twitch\.tv\/([a-zA-z0-9]+)\/?(?:v\/|b\/|c\/)?(\d+)?(?:\?)?(\w+)?(?:\=)?(.+)?/,
     vimeo: /vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,
     vine: /vine\.co\/v\/(.+)/,
     youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)(?:&list=)?([a-zA-Z0-9\_\-]+)?/
@@ -50,8 +50,8 @@ export default {
       return 'https://vine.co/v/' + match[1] + '/embed/simple';
     },
     youtube: (url, match) => {
-      var playlist = (match[2] === undefined) ? '' : '?list=' + match[2];
-      return 'http://www.youtube.com/embed/' + match[1] + playlist;
+      var tail = '?version=3&rel=0'+(match[2] === undefined) ? '' : '&list=' + match[2];
+      return 'https://www.youtube.com/embed/' + match[1] + tail;
     }
   }
 };

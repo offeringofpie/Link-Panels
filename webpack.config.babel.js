@@ -41,10 +41,10 @@ export default {
   },
   plugins: [
     new DashboardPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   include: /\.js$/,
-    //   minimize: true
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.js$/,
+      minimize: true
+    }),
     new ExtractTextPlugin('style.css'),
     new ExtractTextPlugin('style.min.css'),
     new OptimizeCssAssetsPlugin({

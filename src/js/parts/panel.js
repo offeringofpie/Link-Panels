@@ -14,7 +14,7 @@ chrome.browserAction.onClicked.addListener(function() {
     "windowType": "normal"
   }, function(tabs) {
     for (var tab in tabs) {
-      openPanel(tabs[tab].url);
+      openPanel(tabs[tab]);
     }
   });
 });

@@ -1,1 +1,331 @@
-!function(t){function e(n){if(o[n])return o[n].exports;var i=o[n]={i:n,l:!1,exports:{}};return t[n].call(i.exports,i,i.exports,e),i.l=!0,i.exports}var o={};e.m=t,e.c=o,e.i=function(t){return t},e.d=function(t,o,n){e.o(t,o)||Object.defineProperty(t,o,{configurable:!1,enumerable:!0,get:n})},e.n=function(t){var o=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(o,"a",o),o},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=2)}([function(t,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={get:function(t){chrome.storage.sync.get("options",t)},set:function(t){chrome.storage.sync.set({options:t},function(){chrome.runtime.lastError&&console.log("Runtime error.")})},update:function(t){chrome.storage.sync.get("options",function(e){if(chrome.runtime.lastError)console.error(chrome.runtime.lastError);else{var o={width:e.options.width,height:e.options.height,isWide:e.options.isWide};t(o)}})}}},function(t,e,o){"use strict";var n=o(4);chrome.contextMenus.create({title:"Open in Panel",contexts:["link"],onclick:n.openPanel}),chrome.browserAction.onClicked.addListener(function(){chrome.tabs.query({active:!0,currentWindow:!0,status:"complete",windowType:"normal"},function(t){for(var e in t)(0,n.openPanel)(t[e].url)})})},function(t,e,o){"use strict";o(1);var n=o(0),i=function(t){return t&&t.__esModule?t:{default:t}}(n);i.default.get(function(t){void 0===t.length&&i.default.set({width:500,height:281,isWide:!0})}),chrome.commands.onCommand.addListener(function(t){console.log("Command:",t)})},,function(t,e,o){"use strict";function n(t){return t&&t.__esModule?t:{default:t}}function i(t){var e="string"==typeof t?t:t.linkUrl,o=r(e),n={options:{width:300,height:300,isWide:!1}};s.default.get(function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:n;chrome.windows.create({url:o,type:"panel",width:t.options.width,height:t.options.height})})}function r(t){for(var e in a.default.pats){var o=t.match(a.default.pats[e]);if(o)return a.default.embed[e](t,o)}return t}Object.defineProperty(e,"__esModule",{value:!0}),e.openPanel=i,e.linker=r;var u=o(0),s=n(u),c=o(5),a=n(c)},function(t,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={pats:{dailymotion:/dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,gist:/gist\.github\.com\/([-0-9a-zA-Z]+\/)?([0-9a-fA-f]+)/,instagram:/instagr(?:\.am|am\.com)\/p\/([a-zA-Z0-9]+)/,pastebin:/pastebin\.com\/(.+)/,reddit:/redd(?:\.it|it\.com)\/(.+)?/,soundcloud:/soundcloud\.com\//,tedtalks:/ted\.com\/talks\/(.*)/,twitch:/twitch\.tv\/([a-zA-z0-9]+)\/?(?:v\/|b\/|c\/)?(\d+)?(?:\?)?(\w+)?(?:\=)?(.+)?/,vimeo:/vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,vine:/vine\.co\/v\/(.+)/,youtube:/youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)(?:&list=)?([a-zA-Z0-9\_\-]+)?/},embed:{dailymotion:function(t,e){return"http://www.dailymotion.com/embed/video/"+e[1]+"?api=postMessage&html=1"},gist:function(t,e){return"data:text/html, <title>"+t+'</title><script  src="https://gist.github.com/'+e[1]+"/"+e[2]+'.js"><\/script>'},instagram:function(t,e){return"https://www.instagram.com/p/"+e[1]+"/embed/"},pastebin:function(t,e){return"https://pastebin.com/embed_iframe.php?i="+e[1]},reddit:function(t,e){return"https://m.reddit.com/"+(void 0===e[1]?"":e[1])},soundcloud:function(t,e){return"https://w.soundcloud.com/player/?url="+encodeURIComponent(t)+"&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true"},tedtalks:function(t,e){return"https://embed-ssl.ted.com/talks/"+e[1]+".html"},twitch:function(t,e){var o=void 0===e[2]?"?channel=":"?video=v",n=void 0===e[2]?1:2,i=void 0===e[3]?"":"&"+e[3]+"="+e[4];return"https://player.twitch.tv/"+o+e[n]+i},vimeo:function(t,e){return"https://player.vimeo.com/video/"+e[1]},vine:function(t,e){return"https://vine.co/v/"+e[1]+"/embed/simple"},youtube:function(t,e){return"https://www.youtube.com/embed/"+e[1]}}}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  get: function get(fn) {
+    chrome.storage.sync.get("options", fn);
+  },
+  set: function set(object) {
+    chrome.storage.sync.set({
+      "options": object
+    }, function () {
+      if (chrome.runtime.lastError) {
+        console.log("Runtime error.");
+      }
+    });
+  },
+  update: function update(fn) {
+    chrome.storage.sync.get("options", function (opts) {
+      if (!chrome.runtime.lastError) {
+        var settings = {
+          width: opts.options.width,
+          height: opts.options.height,
+          isWide: opts.options.isWide
+        };
+        fn(settings);
+      } else {
+        console.error(chrome.runtime.lastError);
+      }
+    });
+  }
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _functions = __webpack_require__(5);
+
+chrome.contextMenus.create({
+  title: "Open in Panel",
+  contexts: ["link"],
+  onclick: _functions.openPanel
+});
+
+chrome.browserAction.onClicked.addListener(function () {
+  chrome.tabs.query({
+    "active": true,
+    "currentWindow": true,
+    "status": "complete",
+    "windowType": "normal"
+  }, function (tabs) {
+    for (var tab in tabs) {
+      (0, _functions.openPanel)(tabs[tab]);
+    }
+  });
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(1);
+
+var _sync = __webpack_require__(0);
+
+var _sync2 = _interopRequireDefault(_sync);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_sync2.default.get(function (options) {
+  if (typeof options.length === "undefined") {
+    _sync2.default.set({
+      width: 500,
+      height: 281,
+      isWide: true
+    });
+  }
+});
+
+chrome.commands.onCommand.addListener(function (command) {
+  console.log('Command:', command);
+});
+
+/***/ }),
+/* 3 */,
+/* 4 */,
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.openPanel = openPanel;
+
+var _sync = __webpack_require__(0);
+
+var _sync2 = _interopRequireDefault(_sync);
+
+var _parse = __webpack_require__(7);
+
+var _parse2 = _interopRequireDefault(_parse);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function openPanel(panel) {
+  var tabInfo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var url = typeof panel.url === 'string' ? panel.url : panel.linkUrl;
+  var tabId = typeof tabInfo.id === 'number' ? tabInfo.id : panel.id;
+  var defaults = {
+    options: {
+      width: 300,
+      height: 300,
+      isWide: false,
+      experimental: false
+    }
+  };
+
+  browser.tabs.sendMessage(tabId, { get: "source" }).then(function (response) {
+    var embedUrl = "";
+
+    for (var i in _parse2.default.pats) {
+      var pat = url.match(_parse2.default.pats[i]);
+      if (pat) {
+        embedUrl = _parse2.default.embed[i](url, pat, response);
+      }
+    }
+
+    if (!embedUrl.length) {
+      embedUrl = url;
+    }
+
+    _sync2.default.get(function () {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaults;
+
+      chrome.windows.create({
+        url: embedUrl,
+        type: 'panel',
+        width: data.options.width,
+        height: data.options.height
+      });
+    });
+  });
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.iframe = iframe;
+function iframe(element) {
+  var correct_url = '';
+  element.querySelectorAll('iframe').forEach(function (e) {
+    if (e.src.length && !e.src.match(/google.com|twitter.com|addthis.com/)) {
+      correct_url = e.src;
+    }
+  });
+
+  return correct_url;
+}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _iframe = __webpack_require__(6);
+
+exports.default = {
+  /* regex patterns */
+  pats: {
+    dailymotion: /dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,
+    gist: /gist\.github\.com\/([-0-9a-zA-Z]+\/)?([0-9a-fA-f]+)/,
+    instagram: /instagr(?:\.am|am\.com)\/p\/([a-zA-Z0-9]+)/,
+    allucee: /alluc\.ee\/(.+)/,
+    pastebin: /pastebin\.com\/(.+)/,
+    reddit: /redd(?:\.it|it\.com)\/(.+)?/,
+    soundcloud: /soundcloud\.com\//,
+    tedtalks: /ted\.com\/talks\/(.*)/,
+    twitch: /twitch\.tv\/([a-zA-z0-9]+)\/?(?:v\/|b\/|c\/)?(\d+)?(?:\?)?(\w+)?(?:\=)?(.+)?/,
+    vimeo: /vimeo\.com\/(?:[a-z]+\/)?(?:[a-z]+\/)?(?:[a-z]+\/)?(\w+)/,
+    vine: /vine\.co\/v\/(.+)/,
+    youtube: /youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9\_\-]+)(?:&list=)?([a-zA-Z0-9\_\-]+)?/
+  },
+  /* embed links */
+  embed: {
+    dailymotion: function dailymotion(url, match) {
+      return 'http://www.dailymotion.com/embed/video/' + match[1] + '?api=postMessage&html=1';
+    },
+    gist: function gist(url, match) {
+      return 'data:text/html, <title>' + url + '</title><script  src="https://gist.github.com/' + match[1] + '/' + match[2] + '.js"></script>';
+    },
+    instagram: function instagram(url, match) {
+      return 'https://www.instagram.com/p/' + match[1] + '/embed/';
+    },
+    allucee: function allucee(url, match, response) {
+      var el = document.createElement('html');
+      el.innerHTML = response;
+
+      return (0, _iframe.iframe)(el);
+    },
+    pastebin: function pastebin(url, match) {
+      return 'https://pastebin.com/embed_iframe.php?i=' + match[1];
+    },
+    reddit: function reddit(url, match) {
+      var permalink = match[1] === undefined ? '' : match[1];
+      return 'https://m.reddit.com/' + permalink;
+    },
+    soundcloud: function soundcloud(url, match) {
+      return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(url) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true';
+    },
+    tedtalks: function tedtalks(url, match) {
+      return 'https://embed-ssl.ted.com/talks/' + match[1] + ".html";
+    },
+    twitch: function twitch(url, match) {
+      var param = match[2] === undefined ? '?channel=' : '?video=v',
+          which = match[2] === undefined ? 1 : 2,
+          collection = match[3] === undefined ? '' : '&' + match[3] + '=' + match[4];
+      return 'https://player.twitch.tv/' + param + match[which] + collection;
+    },
+    vimeo: function vimeo(url, match) {
+      return 'https://player.vimeo.com/video/' + match[1];
+    },
+    vine: function vine(url, match) {
+      return 'https://vine.co/v/' + match[1] + '/embed/simple';
+    },
+    youtube: function youtube(url, match) {
+      var tail =  true ? '' : '&list=' + match[2];
+      return 'https://www.youtube.com/embed/' + match[1] + tail;
+    }
+  }
+};
+
+/***/ })
+/******/ ]);

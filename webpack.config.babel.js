@@ -8,6 +8,7 @@ export default {
   entry: {
     "background": "./src/js/background.js",
     "options": "./src/js/options.js",
+    "content": "./src/js/content.js"
   },
   output: {
     filename: '[name].js',
@@ -40,10 +41,10 @@ export default {
   },
   plugins: [
     new DashboardPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.js$/,
-      minimize: true
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   include: /\.js$/,
+    //   minimize: true
+    // }),
     new ExtractTextPlugin('style.css'),
     new ExtractTextPlugin('style.min.css'),
     new OptimizeCssAssetsPlugin({

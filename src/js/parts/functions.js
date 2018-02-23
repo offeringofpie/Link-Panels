@@ -1,33 +1,42 @@
 import sync from './sync';
 import p from './parse.js';
 
-export function openPanel (panel) {
-  let typeOfUrl = (typeof panel === 'string') ? panel : panel.linkUrl;
-  let embedUrl = linker(typeOfUrl);
+export function openPanel (panel, tabInfo = {}) {
+  let url = (typeof panel.url === 'string') ? panel.url : panel.linkUrl;
+  let tabId = (typeof tabInfo.id === 'number') ? tabInfo.id : panel.id;
   let defaults = {
     options: {
       width: 300,
       height: 300,
-      isWide: false
+      isWide: false,
+      experimental: false
     }
   };
 
-  sync.get((data = defaults) => {
-    chrome.windows.create({
-      url: embedUrl,
-      type: 'panel',
-      width: data.options.width,
-      height: data.options.height
+  browser.tabs.sendMessage(
+    tabId,
+    { get: "source" }
+  ).then(response => {
+    let embedUrl = "";
+
+    for (var i in p.pats) {
+      var pat = url.match(p.pats[i]);
+      if (pat) {
+        embedUrl = p.embed[i](url, pat, response);
+      }
+    }
+
+    if (!embedUrl.length) {
+      embedUrl = url;
+    }
+
+    sync.get((data = defaults) => {
+      chrome.windows.create({
+        url: embedUrl,
+        type: 'panel',
+        width: data.options.width,
+        height: data.options.height
+      });
     });
   });
-};
-
-export function linker (url) {
-  for (var i in p.pats) {
-    var pat = url.match(p.pats[i]);
-    if (pat) {
-      return p.embed[i](url, pat);
-    }
-  }
-  return url;
 };

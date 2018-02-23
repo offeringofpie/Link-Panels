@@ -63,107 +63,21 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+browser.runtime.onMessage.addListener(function (request) {
+  return Promise.resolve(document.all[0].outerHTML);
 });
-exports.default = {
-  get: function get(fn) {
-    chrome.storage.sync.get("options", fn);
-  },
-  set: function set(object) {
-    chrome.storage.sync.set({
-      "options": object
-    }, function () {
-      if (chrome.runtime.lastError) {
-        console.log("Runtime error.");
-      }
-    });
-  },
-  update: function update(fn) {
-    chrome.storage.sync.get("options", function (opts) {
-      if (!chrome.runtime.lastError) {
-        var settings = {
-          width: opts.options.width,
-          height: opts.options.height,
-          isWide: opts.options.isWide
-        };
-        fn(settings);
-      } else {
-        console.error(chrome.runtime.lastError);
-      }
-    });
-  }
-};
-
-/***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _sync = __webpack_require__(0);
-
-var _sync2 = _interopRequireDefault(_sync);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var optionsElems = {
-  data: document.getElementById('data'),
-  wide: document.getElementById('wide'),
-  width: document.getElementById('width'),
-  height: document.getElementById('height'),
-  experimental: document.getElementById('experimental'),
-  set: document.getElementById('set')
-};
-
-optionsElems.width.onchange = function () {
-  if (optionsElems.wide.checked) {
-    optionsElems.height.value = Math.floor(optionsElems.width.value * 9 / 16);
-  }
-};
-//width.value = 450;
-optionsElems.wide.onchange = function () {
-  if (optionsElems.wide.checked) {
-    optionsElems.height.disabled = true;
-  } else {
-    optionsElems.height.disabled = false;
-    optionsElems.height.value = Math.floor(optionsElems.width.value * 9 / 16);
-  }
-};
-
-document.body.onload = function () {
-  _sync2.default.update(function (options) {
-    optionsElems.wide.checked = options.isWide;
-    optionsElems.experimental.checked = options.experimental;
-    optionsElems.width.value = options.width;
-    optionsElems.height.value = options.height;
-    optionsElems.height.value = options.height;
-  });
-};
-
-optionsElems.set.onclick = function () {
-  _sync2.default.set({
-    width: parseInt(optionsElems.width.value),
-    height: parseInt(optionsElems.height.value),
-    isWide: optionsElems.wide.checked,
-    experimental: optionsElems.experimental.checked
-  });
-  window.close();
-};
 
 /***/ })
-/******/ ]);
+
+/******/ });

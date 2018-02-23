@@ -1,9 +1,12 @@
+import {iframe} from './iframe';
+
 export default {
   /* regex patterns */
   pats: {
     dailymotion: /dailymotion.com[\w\/#]+video[\/=]([a-z0-9]+)/,
     gist: /gist\.github\.com\/([-0-9a-zA-Z]+\/)?([0-9a-fA-f]+)/,
     instagram: /instagr(?:\.am|am\.com)\/p\/([a-zA-Z0-9]+)/,
+    allucee: /alluc\.ee\/(.+)/,
     pastebin: /pastebin\.com\/(.+)/,
     reddit: /redd(?:\.it|it\.com)\/(.+)?/,
     soundcloud: /soundcloud\.com\//,
@@ -23,6 +26,12 @@ export default {
     },
     instagram: (url, match) => {
       return 'https://www.instagram.com/p/' + match[1] + '/embed/';
+    },
+    allucee: (url, match, response) => {
+      const el = document.createElement( 'html' );
+      el.innerHTML = response;
+
+      return iframe(el);
     },
     pastebin: (url, match) => {
       return 'https://pastebin.com/embed_iframe.php?i=' + match[1];

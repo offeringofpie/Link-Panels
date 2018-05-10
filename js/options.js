@@ -1,5 +1,3 @@
-import sync from './parts/sync.js';
-
 let optionsElems = {
   data: document.querySelector('#data'),
   wide: document.querySelector('#wide'),

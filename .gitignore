@@ -1,5 +1,6 @@
 /*
 !.gitignore
+!.gitlab-ci.yml
 !package.json
 !manifest.json
 !README.md

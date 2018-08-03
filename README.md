@@ -1,7 +1,7 @@
 [Link-Panels](https://offeringofpie.github.io/Link-Panels/)
 =============
 
-<img src="./img/128x128.png" width="128" alt="logo">
+<img src="./build/img/128x128.png" width="128" alt="logo">
 
 Open links / videos in separate windows
 

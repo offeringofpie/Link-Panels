@@ -6,6 +6,6 @@
 !LICENSE
 !index.html
 !options.html
-!css/
-!img/
-!js/
+!webpack.config.js
+!src/
+!build/

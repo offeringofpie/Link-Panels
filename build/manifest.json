@@ -4,7 +4,9 @@
   "manifest_version": 2,
   "description": "Create panels from links",
   "background": {
-    "scripts": ["/js/background.js"]
+    "scripts": [
+      "/js/background.js"
+    ]
   },
   "applications": {
     "gecko": {
@@ -14,7 +16,9 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["/js/content.js"]
+    "js": [
+      "/js/content.js"
+    ]
   }],
   "permissions": [
     "contextMenus",
@@ -40,5 +44,6 @@
   "options_ui": {
     "page": "./options.html",
     "chrome_style": true
-  }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

@@ -22,3 +22,6 @@ Chrome](https://chrome.google.com/webstore/detail/link-panels/jaajobjnjpnjpkflch
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Credits
+@gkrishnaks for his webstore deployment methods

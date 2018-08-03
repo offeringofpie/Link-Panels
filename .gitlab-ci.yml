@@ -14,5 +14,5 @@ deployExtension:
     - npm run make
     - mv -v web-ext-artifacts/*.zip extension.zip
     - CLIENT_ID=${CLIENT_ID} CLIENT_SECRET=${CLIENT_SECRET} EXTENSION_ID=${EXTENSION_ID} REFRESH_TOKEN=${REFRESH_TOKEN} node ./src/deploy/.deploytoChromeStore.js
-    - node ./src/deploy/.deploytoAMO.js firefox .
+    - WEXT_SHIPIT_FIREFOX_JWT_ISSUER=${WEXT_SHIPIT_FIREFOX_JWT_ISSUER} WEXT_SHIPIT_FIREFOX_JWT_SECRET=${WEXT_SHIPIT_FIREFOX_JWT_SECRET} node ./src/deploy/.deploytoAMO.js firefox ./build
   when: manual

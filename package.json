@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "make":"web-ext build --source-dir ./build",
+    "make": "web-ext build --source-dir ./build",
     "test": "jest"
   },
   "husky": {

@@ -9,7 +9,7 @@ let CLIENT_SECRET = process.env.CLIENT_SECRET;
 let CLIENT_ID = process.env.CLIENT_ID;
 
 // to fetch it from node_modules
-let webstoreLocation = '../../node_modules/.bin/webstore';
+let webstoreLocation = './node_modules/.bin/webstore';
 
 uploadExtension();  // This just uploads - will not publish yet.
 
@@ -19,7 +19,7 @@ exec(cmd, (error, stdout, stderr) => {
    // console.log(`stdout: ${stdout}`);
   //  console.log(`stderr: ${stderr}`);
     if (error !== null) {
-     // console.log(`exec error: ${error}`);
+      console.log(`exec error: ${error}`);
       console.log("uploadExtension failed in exec error");
       process.exit(1);
     } else {

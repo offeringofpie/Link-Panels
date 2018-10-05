@@ -2,7 +2,7 @@
   "name": "link-panels",
   "author": "J Lopes <mail@jlopes.eu>",
   "git": "https://github.com/offeringofpie/Link-Panels.git",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "description": "Chrome/Firefox extension for training purposes",
   "main": "index.js",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "Link Panels",
-  "version": "0.20.5",
+  "version": "0.20.6",
   "manifest_version": 2,
   "description": "Create panels from links",
   "background": {
